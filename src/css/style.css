@@ -1,0 +1,253 @@
+/* src/css/style.css */
+
+/* --- Basic Reset & Globals --- */
+:root {
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --header-color: #555;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Navigation Bar --- */
+.site-nav {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keeps it on top of other content */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 60px;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--header-color);
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #007bff; /* A nice highlight color */
+}
+
+/* --- Header & Footer --- */
+.site-header, .site-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--header-color);
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* --- Basic Page Content Styling --- */
+.page-content {
+    max-width: 800px; /* A comfortable reading width */
+    margin: 2rem auto; /* Centers the block and adds space top/bottom */
+    padding: 0 1rem;   /* Adds space on the sides for smaller screens */
+    line-height: 1.7;  /* Increases space between lines of text */
+}
+
+.page-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-picture {
+    display: block;
+    max-width: 200px;
+    border-radius: 50%; /* Makes the image a circle */
+    margin: 0 auto 2rem; /* Centers the image and adds space below it */
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* --- The Main Portfolio Grid --- */
+.portfolio-grid {
+    display: grid;
+    /* This makes as many 280px columns as can fit, growing to fill the space */
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1600px;
+    margin: 0 auto; /* Center the grid */
+}
+
+/* --- Individual Thumbnail Cards (The Cropping Container) --- */
+.thumbnail-card {
+    display: block;
+    position: relative; /* Crucial for positioning the overlay */
+    overflow: hidden; /* Hides the parts of the image that are cropped */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* The magic! This forces the container to be a perfect square */
+    aspect-ratio: 1 / 1; 
+
+    
+}
+
+.thumbnail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- The Image inside the Card --- */
+.thumbnail-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    /* This makes the image cover the square container, cropping the excess */
+    object-fit: cover; 
+    object-position: center; /* Ensures cropping is centered */
+    
+    /* Transition for the darkening effect */
+    transition: filter 0.3s ease;
+}
+
+/* --- Darkening Effect and Overlay on Hover --- */
+.thumbnail-card:hover img {
+    /* This darkens the image itself */
+    filter: brightness(0.6);
+}
+
+.thumbnail-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    padding: 2rem 1rem 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Allows clicks to go through to the link */
+    
+    /* We remove the background gradient so the image darkening shows through */
+    background: none; 
+}
+
+.thumbnail-card:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overlay .title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Adds readability */
+}
+
+/* --- Lightbox Styles --- */
+.lightbox {
+    position: fixed; /* Stays in place even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+
+    /* Centering the image container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* This class will be added by JavaScript to show the lightbox */
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;   /* Max 90% of viewport width */
+    max-height: 90vh;  /* Max 90% of viewport height */
+}
+
+#lightbox-img {
+    max-width: 100%;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 4px;
+}
+
+/* --- Lightbox Buttons --- */
+.lightbox-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(30, 30, 30, 0.6);
+    color: white;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    user-select: none; /* Prevents text selection on double click */
+    transition: background-color 0.2s ease;
+}
+
+.lightbox-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 1rem;
+}
+
+.next-btn {
+    right: 1rem;
+}
+
+.close-btn {
+    top: 1rem;
+    right: 1rem;
+    transform: none;
+    font-size: 3rem;
+    line-height: 1;
+    padding: 0 1rem;
+}

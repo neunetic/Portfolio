@@ -1,0 +1,40 @@
+[
+  {
+    "title": "Img 1",
+    "image": "/images/Fig_96_Color.jpg",
+    "alt": "An illustration of an astronaut floating in a nebula",
+    "description": "A piece I did for a personal project exploring space themes."
+  },
+  {
+    "title": "Img 2",
+    "image": "/images/Fig_99_Color.jpg",
+    "alt": "An illustration of a glowing deer in an enchanted forest",
+    "description": "Commissioned work for a fantasy book cover."
+  },
+  {
+    "title": "Img 3",
+    "image": "/images/Fig_98_Color.jpg",
+    "alt": "A futuristic city skyline with flying vehicles at sunset",
+    "description": "Concept art for a sci-fi game."
+  },
+  {
+    "title": "Img 4",
+    "image": "/images/Fig_97_Color.jpg",
+    "alt": "An illustration of an astronaut floating in a nebula",
+    "description": "A piece I did for a personal project exploring space themes."
+  },
+  {
+    "title": "Img 5",
+    "image": "/images/Fig_94_Color.jpg",
+    "alt": "An illustration of a glowing deer in an enchanted forest",
+    "description": "Commissioned work for a fantasy book cover."
+  },
+  {
+    "title": "Img 6",
+    "image": "/images/Fig_88_Color.jpg",
+    "alt": "A futuristic city skyline with flying vehicles at sunset",
+    "description": "Concept art for a sci-fi game."
+  }
+  
+]
+

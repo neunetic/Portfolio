@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... your head content remains the same ... -->
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Neunetic</a>
+            <ul class="nav-links">
+                <li><a href="/">Portfolio</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+     <!-- START: Lightbox Structure -->
+    <div class="lightbox" id="portfolio-lightbox">
+        <button class="lightbox-btn close-btn" aria-label="Close image viewer">&times;</button>
+        <button class="lightbox-btn prev-btn" aria-label="Previous image">&#10094;</button>
+        <button class="lightbox-btn next-btn" aria-label="Next image">&#10095;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+        </div>
+    </div>
+    <!-- END: Lightbox Structure -->
+
+    <script src="/js/main.js" defer></script>
+
+    <header class="site-header">
+        <h1>{{ title }}</h1>
+    </header>
+    <main>
+        {{ content | safe }}
+    </main>
+    <footer class="site-footer">
+        <p>&copy; 2024 Suhayb Abdi</p>
+    </footer>
+</body>
+</html>

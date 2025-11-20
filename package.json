@@ -1,0 +1,21 @@
+{
+  "name": "neunetic-portfolio",
+  "version": "1.0.0",
+  "description": "A simple portfolio for my illustration work.",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "illustrator",
+    "11ty"
+  ],
+  "author": "Suhayb",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
