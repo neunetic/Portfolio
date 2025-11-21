@@ -1,10 +1,8 @@
-/* src/css/style.css */
-
 /* --- Basic Reset & Globals --- */
 :root {
-    --background-color: #f4f4f9;
-    --text-color: #333;
-    --header-color: #555;
+    --background-color: #ffffff;
+    --text-color: #3a3a3a;
+    --header-color: #3a3a3a;
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -16,62 +14,63 @@ body {
     line-height: 1.6;
 }
 
-/* --- Navigation Bar --- */
-.site-nav {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    padding: 0 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Keeps it on top of other content */
-}
-
-.nav-container {
+/* --- Header & Footer --- */
+.page-header, .site-footer {
+    font-family: 'Times New Roman', serif;
+    text-align: center;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    max-width: 1600px;
-    margin: 0 auto;
-    height: 60px;
+    padding: 2rem 1rem;
+    color: var(--header-color);
+    background-color: var(--background-color);
 }
 
-.nav-logo {
-    font-weight: 700;
-    font-size: 1.25rem;
-    text-decoration: none;
+.header {
+    text-align: center;
+
+}
+
+.header h1 {
+    margin-bottom: 0;
+    font-family: 'Times New Roman', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
     color: var(--header-color);
 }
 
-.nav-links {
+.header .subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: rgba(23, 23, 23, 0.7);
+    margin-top: 0.8rem;
+}
+
+/* --- NEW: Main Navigation Styling --- */
+.main-navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5rem;
+    flex-wrap: wrap; /* Allows links to wrap on smaller screens */
+    justify-content: center;
+    gap: 2rem; 
 }
 
-.nav-links a {
+.main-navigation a {
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: 400;
-    transition: color 0.2s ease;
+    color: rgba(55, 55, 55, 0.85);
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out;
 }
 
-.nav-links a:hover {
-    color: #007bff; /* A nice highlight color */
-}
-
-/* --- Header & Footer --- */
-.site-header, .site-footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    color: var(--header-color);
-}
-
-.site-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: 700;
+.main-navigation a:hover {
+    color: #fff; /* A nice highlight color on hover */
 }
 
 /* --- Basic Page Content Styling --- */
@@ -96,7 +95,7 @@ body {
 }
 
 /* --- The Main Portfolio Grid --- */
-.portfolio-grid {
+.image-grid {
     display: grid;
     /* This makes as many 280px columns as can fit, growing to fill the space */
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
@@ -106,6 +105,52 @@ body {
     margin: 0 auto; /* Center the grid */
 }
 
+/* -------------------------------------------------- */
+/* Image Grid Animations */
+/* -------------------------------------------------- */
+
+/* Hide thumbnails by default until the animation applies */
+.thumbnail-card {
+    opacity: 0;
+    /* Use 'top' property for initial positioning instead of 'transform: translateY' */
+    position: relative; /* Required for 'top' to work as intended */
+    top: 20px; 
+    
+    animation-name: fadeInUpFix; /* Renamed keyframes */
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards; /* Keep the final state (visible) */
+    animation-timing-function: ease-out;
+
+    /* Existing styles remain here */
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, top 0.3s ease; /* Add top to transition */
+    aspect-ratio: 1 / 1.2; 
+}
+
+/* Keyframe animation for fading in and moving up slightly */
+@keyframes fadeInUpFix {
+    to {
+        opacity: 1;
+        /* Animate 'top' back to its default position */
+        top: 0; 
+    }
+}
+
+/* Apply staggered delays using CSS :nth-child selector */
+/* ... (nth-child selectors remain the same) ... */
+.thumbnail-card:nth-child(1) { animation-delay: 0.1s; }
+.thumbnail-card:nth-child(2) { animation-delay: 0.2s; }
+.thumbnail-card:nth-child(3) { animation-delay: 0.3s; }
+.thumbnail-card:nth-child(4) { animation-delay: 0.4s; }
+.thumbnail-card:nth-child(5) { animation-delay: 0.5s; }
+.thumbnail-card:nth-child(6) { animation-delay: 0.6s; }
+.thumbnail-card:nth-child(7) { animation-delay: 0.7s; }
+.thumbnail-card:nth-child(8) { animation-delay: 0.8s; }
+.thumbnail-card:nth-child(9) { animation-delay: 0.9s; }
+
 /* --- Individual Thumbnail Cards (The Cropping Container) --- */
 .thumbnail-card {
     display: block;
@@ -114,11 +159,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    /* The magic! This forces the container to be a perfect square */
-    aspect-ratio: 1 / 1; 
-
-    
+    aspect-ratio: 1 / 1.2; 
 }
 
 .thumbnail-card:hover {

@@ -6,9 +6,8 @@ layout: "base.njk"
 <div class="page-content">
     <img src="/images/Pfp.jpg" alt="A photo of me" class="profile-picture">
 
-    <h2>Hello! I'm Suhayb </h2>
-    <p>I am an illustrator and visual artist with a passion for creating vibrant and imaginative worlds. My work is heavily inspired by fantasy, mythology, and the surreal beauty of the natural world.</p>
-    <p>From a young age, I was always drawing. What started as a hobby quickly grew into a lifelong dedication to the craft. I specialize in digital illustration, using tools like Procreate and Adobe Photoshop to bring my ideas to life. My style is characterized by detailed line work, rich textures, and a dynamic use of color.</p>
-    <p>Whether it's for a book cover, a game concept, or a personal commission, my goal is always the same: to tell a story and evoke emotion through my art. When I'm not drawing, you can usually find me exploring a forest, reading a good book, or playing video games (for research, of course!).</p>
-    <p>Thank you for visiting my portfolio. If you're interested in collaborating or commissioning a piece, feel free to get in touch!</p>
+    <h3>Hello! I'm Suhayb </h3>
+    <p>I am an illustrator, comic artist and character designer currently based in Norway. I specialize in characters. I'm a designer and storyteller at heart and a constant sketcher. In my free time I read old fiction literature, play soulslike games or watch movies. </p>
+    <p>If I am to define my artistic philosophy, it's that the essence of beauty is found in something that has history. The weary lines on a old king's face, a broken vase repaired with gold, the young prince missing an eye. Essentially it's transience. The reminder that time passes. It's in the metamorphosis when we face our fears and become different people, wearing our history on our sleeves. </p>
+
 </div>

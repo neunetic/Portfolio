@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const lightbox = document.getElementById('portfolio-lightbox');
+    const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const thumbnailCards = document.querySelectorAll('.thumbnail-card');
     let currentIndex = 0;
