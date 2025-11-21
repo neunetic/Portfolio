@@ -4,7 +4,7 @@ layout: "base.njk"
 ---
 
 <div class="page-content">
-    <img src="/src/images/pfp.jpg" alt="A photo of me" class="profile-picture">
+    {% imageOpt "images/pfp.jpg", "A photo of me", "profile-picture" %}
 
     <h3>Hello! I'm Suhayb </h3>
     <p>I am an illustrator, comic artist and character designer currently based in Norway. I specialize in characters. I'm a designer and storyteller at heart and a constant sketcher. In my free time I read old fiction literature, play soulslike games or watch movies. </p>

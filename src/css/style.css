@@ -89,9 +89,11 @@ body {
 .profile-picture {
     display: block;
     max-width: 200px;
+    max-height: 200px;
     border-radius: 50%; /* Makes the image a circle */
     margin: 0 auto 2rem; /* Centers the image and adds space below it */
     box-shadow: 0 4px 12px var(--shadow-color);
+    object-fit: cover;
 }
 
 /* --- The Main Portfolio Grid --- */
