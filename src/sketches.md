@@ -5,7 +5,7 @@ layout: "base.njk"
 
 <div class="image-grid">
 {% for item in sketches %}
-<a href="{{ item.image }}" class="thumbnail-card" data-index="{{ forloop.index0 }}">
+    <a href="#" class="thumbnail-card" data-index="{{ forloop.index0 }}" data-lightbox-src="{% imageLightboxSrc item.image %}">
         {% imageOpt item.image, item.alt, "optimized-thumbnail" %}
     </a>
 {% endfor %}

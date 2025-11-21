@@ -255,11 +255,12 @@ body {
 
 #lightbox-img {
     max-width: 100%;
-    max-height: 100vh;
+    max-height: 90vh;
     width: auto;
     height: auto;
     object-fit: contain;
     display: block;
+    image-rendering: crisp-edges; 
     border-radius: 4px;
 
     /* ANIMATION PART 3: Image transition */

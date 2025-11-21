@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thumbnailCards = document.querySelectorAll('.thumbnail-card');
     let currentIndex = 0;
 
-    const images = Array.from(thumbnailCards).map(card => card.href);
+    const images = Array.from(thumbnailCards).map(card => card.dataset.lightboxSrc);
 
     function showLightbox(index) {
         currentIndex = index;
