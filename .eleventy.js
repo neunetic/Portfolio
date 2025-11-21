@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/js");
 
   eleventyConfig.addAsyncShortcode("imageOpt", async function(src, alt, classes = "") {
