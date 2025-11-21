@@ -12,6 +12,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/img");
 
   // Shortcode for responsive thumbnails (loading="lazy" is default)
   eleventyConfig.addAsyncShortcode("imageOpt", async function(src, alt, classes = "") {
