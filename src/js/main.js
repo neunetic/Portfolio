@@ -30,34 +30,28 @@ document.addEventListener('DOMContentLoaded', () => {
         showLightbox(prevIndex);
     }
 
-    // --- 3. ATTACH EVENT LISTENERS ---
-
-    // Open the lightbox when a thumbnail is clicked
+ 
     thumbnailCards.forEach(card => {
         card.addEventListener('click', (e) => {
-            e.preventDefault(); // Stop the link from opening a new page
+            e.preventDefault();
             const index = parseInt(card.dataset.index, 10);
             showLightbox(index);
         });
     });
 
-    // Navigation buttons
     document.querySelector('.next-btn').addEventListener('click', showNextImage);
     document.querySelector('.prev-btn').addEventListener('click', showPrevImage);
     
-    // Close the lightbox
     document.querySelector('.close-btn').addEventListener('click', hideLightbox);
 
-    // Also close when clicking the dark background
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) { // Check if the click is on the background itself
+        if (e.target === lightbox) {
             hideLightbox();
         }
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (lightbox.classList.contains('active')) { // Only act if the lightbox is open
+        if (lightbox.classList.contains('active')) {
             if (e.key === 'ArrowRight') {
                 showNextImage();
             } else if (e.key === 'ArrowLeft') {

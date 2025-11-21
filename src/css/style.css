@@ -232,15 +232,19 @@ body {
     justify-content: center;
     align-items: center;
 
+    /* ANIMATION PART 1: Initial state is hidden */
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    visibility: hidden; /* Ensures no interaction when hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* This class will be added by JavaScript to show the lightbox */
 .lightbox.active {
+    /* ANIMATION PART 2: Final state is visible */
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
 }
 
 .lightbox-content {
@@ -257,7 +261,19 @@ body {
     object-fit: contain;
     display: block;
     border-radius: 4px;
+
+    /* ANIMATION PART 3: Image transition */
+    transform: scale(0.95); /* Start slightly smaller for zoom effect */
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+/* ANIMATION PART 4: When active, animate the image to full size/opacity */
+.lightbox.active #lightbox-img {
+    transform: scale(1);
+    opacity: 1;
+}
+
 
 /* --- Lightbox Buttons --- */
 .lightbox-btn {
@@ -271,11 +287,16 @@ body {
     cursor: pointer;
     padding: 0.5rem 1rem;
     user-select: none; /* Prevents text selection on double click */
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease; /* Added transform transition for flash */
 }
 
 .lightbox-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Added active state for a 'flash' when clicked */
+.lightbox-btn:active {
+    transform: translateY(-50%) scale(0.9);
 }
 
 .prev-btn {
@@ -289,8 +310,13 @@ body {
 .close-btn {
     top: 1rem;
     right: 1rem;
-    transform: none;
+    transform: none; /* Override the translateY for vertical center */
     font-size: 3rem;
     line-height: 1;
     padding: 0 1rem;
+}
+
+/* Added active state for the close button "flash" */
+.close-btn:active {
+    transform: scale(0.9);
 }
